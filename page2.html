@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mong Muốn Của Anh ❤️</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="page-body">
+
+    <div id="particles-js"></div>
+
+    <section class="content-page active">
+        <a href="index.html" class="close-btn">✕</a>
+        <div class="page-content">
+            <h1>Mong Muốn Của Anh 💭</h1>
+
+            <div class="letter">
+                <p class="greeting">Vi ơi,</p>
+
+                <p>Từ ngày anh để ý em, anh hay nghĩ về những điều sau này lắm. Không phải kiểu viển vông gì đâu, chỉ là
+                    những điều nhỏ nhỏ, gần gũi mà anh thấy ấm áp khi tưởng tượng có em bên cạnh.</p>
+
+                <p>Anh mong sau này, dù thi cử có áp lực thế nào, hai đứa vẫn có thể cùng nhau học bài ở quán nước cổng
+                    trường, em chép bài Văn cho anh, anh giải Toán giúp em (dù anh cũng chả giỏi lắm, nhưng cố được mà
+                    😅).</p>
+
+                <p>Anh muốn những buổi chiều tan học, mình đạp xe dọc bờ sông Cấm, gió mát rượi, em kể chuyện nhà có con
+                    mèo Mimi nghịch ngợm, anh thì trêu em "nhỏ con mà hay mơ mộng".</p>
+
+                <p>Anh mong một ngày nào đó, khi lớn hơn chút nữa, mình có thể đi chơi xa hơn: lên Cát Bà ngắm biển, ăn
+                    hải sản, chụp ảnh aesthetic kiểu em thích. Hay đơn giản là cùng nhau ăn kem Tràng Tiền, em chọn vị
+                    dâu, anh chọn socola, rồi cãi nhau xem vị nào ngon hơn (nhưng chắc chắn anh sẽ nhường em thôi).</p>
+
+                <p>Quan trọng nhất, anh mong em luôn vui vẻ, luôn là Quách Tương Vi hiền lành, hay cười lúm đồng tiền mà
+                    anh thích. Anh muốn được ở bên bảo vệ em khỏi những lúc buồn, những lúc áp lực học hành, và nếu em
+                    đồng ý, anh muốn mình cùng nhau cố gắng thi đại học, dù khác trường hay cùng thành phố, anh vẫn sẽ
+                    cố gắng giữ liên lạc, vẫn nhắn tin mỗi tối "Vi ngủ ngon chưa?".</p>
+
+                <p>Anh không hứa gì to tát đâu Vi ơi, vì tụi mình còn trẻ, tương lai còn dài. Nhưng anh hứa sẽ cố gắng
+                    trở thành người tốt hơn mỗi ngày, để xứng đáng với em. Anh chỉ mong... em cho anh một cơ hội để cùng
+                    viết tiếp những điều đẹp đẽ ấy.</p>
+
+                <p>Nếu em cũng nghĩ về tương lai có anh một chút xíu thôi, thì ngày 14/2 này, em có thể cho anh một câu
+                    trả lời không? Dù là gì đi nữa, anh vẫn sẽ trân trọng em lắm.</p>
+
+                <p class="signature">Yêu em,<br>Đạt</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Heart Particles
+        const container = document.getElementById('particles-js');
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = "❤️";
+            heart.style.position = "fixed";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.top = "100vh";
+            heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+            heart.style.opacity = Math.random() * 0.6 + 0.2;
+            heart.style.transition = "all 6s linear";
+            heart.style.zIndex = "-1";
+            heart.style.pointerEvents = "none";
+            container.appendChild(heart);
+            setTimeout(() => {
+                heart.style.top = "-10vh";
+                heart.style.transform = `translateX(${(Math.random() - 0.5) * 200}px) rotate(${Math.random() * 360}deg)`;
+            }, 100);
+            setTimeout(() => heart.remove(), 6500);
+        }
+        setInterval(createHeart, 400);
+
+        // Animate letter
+        gsap.from('.letter', {
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            delay: 0.3,
+            ease: "power2.out"
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Những Kỷ Niệm ❤️</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="page-body">
+
+    <div id="particles-js"></div>
+
+    <section class="content-page active">
+        <a href="index.html" class="close-btn">✕</a>
+        <div class="page-content">
+            <h1>Những Kỷ Niệm Rung Động 💫</h1>
+
+            <div class="memory-item">
+                <div class="memory-icon">😊</div>
+                <h3>Lần đầu thấy em cười</h3>
+                <p>Là buổi sinh hoạt lớp, em đứng lên trả lời câu hỏi Văn, cười lúm đồng tiền hiện ra, anh ngồi sau mà
+                    tim đập thình thịch luôn.</p>
+            </div>
+
+            <div class="memory-item">
+                <div class="memory-icon">📝</div>
+                <h3>Tờ note "Cố lên nha Đạt!"</h3>
+                <p>Lần em cho anh mượn vở chép bài vì anh quên mang sách, em còn viết thêm note nhỏ "Cố lên nha Đạt!" –
+                    cái note ấy anh giữ mãi trong cặp.</p>
+            </div>
+
+            <div class="memory-item">
+                <div class="memory-icon">☔</div>
+                <h3>Chiếc ô trong mưa</h3>
+                <p>Có lần tan học mưa to, em đứng nép dưới mái hiên cổng trường, anh chạy qua đưa ô cho em, em ngại
+                    ngùng nói "Cảm ơn anh" mà mặt đỏ bừng.</p>
+            </div>
+
+            <div class="memory-item">
+                <div class="memory-icon">🐱</div>
+                <h3>Chuyện về Mimi</h3>
+                <p>Anh thích nghe em kể về con mèo Mimi nhà em, thích thấy em cười mỗi khi ăn bánh tráng trộn ở cổng
+                    trường. Những điều đó làm anh muốn ở bên em nhiều hơn.</p>
+            </div>
+
+            <p class="memory-conclusion">Những khoảnh khắc nhỏ vậy thôi, nhưng làm anh nhận ra em không chỉ dễ thương,
+                mà còn rất ấm áp, rất biết quan tâm. Anh muốn bảo vệ nụ cười ấy.</p>
+        </div>
+    </section>
+
+    <script>
+        // Heart Particles
+        const container = document.getElementById('particles-js');
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = "❤️";
+            heart.style.position = "fixed";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.top = "100vh";
+            heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+            heart.style.opacity = Math.random() * 0.6 + 0.2;
+            heart.style.transition = "all 6s linear";
+            heart.style.zIndex = "-1";
+            heart.style.pointerEvents = "none";
+            container.appendChild(heart);
+            setTimeout(() => {
+                heart.style.top = "-10vh";
+                heart.style.transform = `translateX(${(Math.random() - 0.5) * 200}px) rotate(${Math.random() * 360}deg)`;
+            }, 100);
+            setTimeout(() => heart.remove(), 6500);
+        }
+        setInterval(createHeart, 400);
+
+        // Animate memory items
+        const items = document.querySelectorAll('.memory-item');
+        gsap.from(items, {
+            opacity: 0,
+            x: -30,
+            stagger: 0.15,
+            duration: 0.6,
+            delay: 0.3,
+            ease: "power2.out"
+        });
+    </script>
+</body>
+
+</html>

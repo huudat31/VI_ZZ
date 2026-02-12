@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dành Cho Tương Vi ❤️</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div id="particles-js"></div>
+
+    <!-- Home Screen with 4 Quadrants -->
+    <section id="home" class="active">
+        <div class="quadrant-container">
+            <svg viewBox="0 0 600 600" class="quadrant-svg">
+                <!-- Top Left Quadrant (Yellow) -->
+                <a href="page1.html">
+                    <path d="M 300 300 L 300 50 A 250 250 0 0 1 476.78 123.22 Z" fill="#FFB84D" class="quadrant" />
+                </a>
+
+                <!-- Top Right Quadrant (Navy) -->
+                <a href="page2.html">
+                    <path d="M 300 300 L 476.78 123.22 A 250 250 0 0 1 550 300 Z" fill="#3E4A7D" class="quadrant" />
+                </a>
+
+                <!-- Bottom Right Quadrant (Pink) -->
+                <a href="page4.html">
+                    <path d="M 300 300 L 550 300 A 250 250 0 0 1 476.78 476.78 Z" fill="#FF8DA1" class="quadrant" />
+                </a>
+
+                <!-- Bottom Left Quadrant (Teal) -->
+                <a href="page3.html">
+                    <path d="M 300 300 L 476.78 476.78 A 250 250 0 0 1 123.22 476.78 Z" fill="#1ABC9C"
+                        class="quadrant" />
+                </a>
+
+
+
+                <!-- Center Circle -->
+                <circle cx="300" cy="300" r="100" fill="white" stroke="#FFC5D3" stroke-width="5" />
+
+                <!-- Labels -->
+                <text x="300" y="120" text-anchor="middle" class="quadrant-label">Về Vi</text>
+                <text x="450" y="250" text-anchor="middle" class="quadrant-label">Tương Lai</text>
+                <text x="300" y="500" text-anchor="middle" class="quadrant-label">Kỷ Niệm</text>
+                <text x="150" y="250" text-anchor="middle" class="quadrant-label">Tỏ Tình</text>
+            </svg>
+
+            <div class="center-image">
+                <img src="assets/image_root.png" alt="Tương Vi" />
+            </div>
+        </div>
+
+        <h1 class="home-title">Dành Cho Quách Tương Vi</h1>
+        <p class="home-subtitle">Nhấn vào từng phần để khám phá ❤️</p>
+    </section>
+
+    <script>
+        // Heart Particles System
+        const container = document.getElementById('particles-js');
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = "❤️";
+            heart.style.position = "fixed";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.top = "100vh";
+            heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+            heart.style.opacity = Math.random() * 0.6 + 0.2;
+            heart.style.transition = "all 6s linear";
+            heart.style.zIndex = "-1";
+            heart.style.pointerEvents = "none";
+
+            container.appendChild(heart);
+
+            setTimeout(() => {
+                heart.style.top = "-10vh";
+                heart.style.transform = `translateX(${(Math.random() - 0.5) * 200}px) rotate(${Math.random() * 360}deg)`;
+            }, 100);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6500);
+        }
+
+        // Create hearts periodically
+        setInterval(createHeart, 400);
+
+        // Initial animation for home screen
+        gsap.from('.quadrant-container', {
+            scale: 0.5,
+            opacity: 0,
+            duration: 1,
+            ease: "back.out(1.7)"
+        });
+
+        gsap.from('.home-title', {
+            y: -50,
+            opacity: 0,
+            duration: 0.8,
+            delay: 0.5
+        });
+
+        gsap.from('.home-subtitle', {
+            y: 20,
+            opacity: 0,
+            duration: 0.8,
+            delay: 0.7
+        });
+    </script>
+</body>
+
+</html>

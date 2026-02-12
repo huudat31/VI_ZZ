@@ -1,0 +1,354 @@
+:root {
+  --pastel-pink: #FFC5D3;
+  --soft-pink: #FFDAE1;
+  --pink: #FF8DA1;
+  --candy-pink: #FFA6C9;
+  --blush-pink: #FFE5EC;
+  --lavender-blush: #FFF0F5;
+  --accent-red: #FF5C8A;
+  --sparkle-yellow: #FFFACD;
+  --text-main: #2d3436;
+  --text-muted: #636e72;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, var(--lavender-blush) 0%, var(--soft-pink) 50%, var(--pastel-pink) 100%);
+  color: var(--text-main);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--accent-red);
+}
+
+/* Particles Background */
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Home Screen */
+#home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+#home.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.quadrant-container {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  max-width: 90vw;
+  max-height: 90vw;
+}
+
+.quadrant-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
+}
+
+.quadrant {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.9;
+}
+
+.quadrant:hover {
+  opacity: 1;
+  filter: brightness(1.1);
+  transform: scale(1.02);
+}
+
+.quadrant-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: bold;
+  fill: white;
+  pointer-events: none;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.center-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid var(--pastel-pink);
+  background: white;
+  box-shadow: 0 10px 40px rgba(255, 105, 180, 0.3);
+}
+
+.center-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-title {
+  margin-top: 40px;
+  font-size: 3rem;
+  color: var(--accent-red);
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.home-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Content Pages */
+.content-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--lavender-blush);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  overflow-y: auto;
+  transition: opacity 0.5s ease;
+}
+
+.content-page.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.close-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--pink);
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 141, 161, 0.4);
+  transition: all 0.3s ease;
+  z-index: 101;
+}
+
+.close-btn:hover {
+  background: var(--accent-red);
+  transform: scale(1.1) rotate(90deg);
+}
+
+.page-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 20px 40px;
+}
+
+.page-content h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--accent-red);
+}
+
+/* Page 1: Info Cards */
+.info-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 20px;
+  border: 2px solid var(--pastel-pink);
+  box-shadow: 0 8px 20px rgba(255, 141, 161, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(255, 141, 161, 0.3);
+}
+
+.info-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--pink);
+}
+
+.info-card p {
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+/* Page 2 & 4: Letter Style */
+.letter,
+.confession-letter {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(255, 141, 161, 0.2);
+  border: 3px solid var(--pastel-pink);
+  line-height: 1.8;
+}
+
+.greeting {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--pink);
+  margin-bottom: 20px;
+}
+
+.letter p,
+.confession-letter p {
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.signature {
+  text-align: right;
+  font-style: italic;
+  color: var(--pink);
+  margin-top: 30px;
+  font-size: 1.1rem;
+}
+
+/* Page 3: Memory Items */
+.memory-item {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  border-left: 5px solid var(--pink);
+  box-shadow: 0 8px 20px rgba(255, 141, 161, 0.15);
+  transition: all 0.3s ease;
+}
+
+.memory-item:hover {
+  transform: translateX(10px);
+  box-shadow: 0 12px 30px rgba(255, 141, 161, 0.25);
+}
+
+.memory-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.memory-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--pink);
+}
+
+.memory-conclusion {
+  margin-top: 30px;
+  padding: 20px;
+  background: var(--blush-pink);
+  border-radius: 15px;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Page 4: Confession Specific */
+.big-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent-red);
+  text-align: center;
+}
+
+.question-box {
+  background: var(--blush-pink);
+  padding: 30px;
+  border-radius: 20px;
+  margin: 30px 0;
+  text-align: center;
+  border: 3px dashed var(--pink);
+}
+
+.question {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.main-question {
+  font-size: 2rem;
+  color: var(--accent-red);
+  margin: 0;
+}
+
+.yes-button {
+  display: block;
+  margin: 30px auto;
+  padding: 20px 50px;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, var(--pink), var(--accent-red));
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'Playfair Display', serif;
+  box-shadow: 0 8px 25px rgba(255, 92, 138, 0.4);
+  transition: all 0.3s ease;
+}
+
+.yes-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 35px rgba(255, 92, 138, 0.6);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .home-title {
+    font-size: 2rem;
+  }
+
+  .quadrant-label {
+    font-size: 18px;
+  }
+
+  .page-content h1 {
+    font-size: 2rem;
+  }
+
+  .letter,
+  .confession-letter {
+    padding: 25px;
+  }
+
+  .main-question {
+    font-size: 1.5rem;
+  }
+}

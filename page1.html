@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Về Quách Tương Vi ❤️</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="page-body">
+
+    <div id="particles-js"></div>
+
+    <section class="content-page active">
+        <a href="index.html" class="close-btn">✕</a>
+        <div class="page-content">
+            <h1>Về Quách Tương Vi 💕</h1>
+
+            <div class="info-card">
+                <h2>Thông tin cơ bản</h2>
+                <p><strong>Họ tên:</strong> Quách Tương Vi</p>
+                <p><strong>Lớp:</strong> 10</p>
+            </div>
+
+            <div class="info-card">
+                <h2>Ngoại hình</h2>
+                <p>Da trắng, tóc dài ngang lưng (thỉnh thoảng buộc cao đuôi gà), mắt to tròn, cười có lúm đồng tiền.
+                    Kiểu con gái dễ thương chứ không phải kiểu "hot girl" lòe loẹt.</p>
+                <p>Hay mặc áo sơ mi trắng + váy xanh navy, đi giày bata trắng.</p>
+            </div>
+
+            <div class="info-card">
+                <h2>Tính cách</h2>
+                <p>Hiền lành, hơi ngại ngùng với người lạ nhưng thân thiện lắm khi quen. Hay cười, kiểu cười tươi rói,
+                    nói chuyện nhẹ nhàng, giọng nhỏ nhỏ miền Bắc.</p>
+                <p>Học hành trung bình khá, giỏi nhất là Văn và Anh (thích đọc truyện ngôn tình + xem phim Hàn), Toán
+                    thì "sống sót" thôi chứ không giỏi.</p>
+            </div>
+
+            <div class="info-card">
+                <h2>Sở thích</h2>
+                <p>🍹 Thích ăn vặt: hay mua trà sữa, bánh tráng trộn, khoai lang nướng ở cổng trường.</p>
+                <p>🎵 Nghe nhạc ballad buồn buồn (Sơn Tùng, Mỹ Tâm, hoặc mấy bản cover TikTok).</p>
+                <p>📸 Chụp ảnh aesthetic.</p>
+                <p>🐱 Nuôi mèo (nhà có con mèo tam thể tên là Mimi).</p>
+            </div>
+
+            <div class="info-card">
+                <h2>Điểm đặc biệt</h2>
+                <p>Rất tốt bụng, hay giúp bạn bè chép bài hoặc nhắc bài, nhưng đôi khi hơi "ngốc nghếch" kiểu quên mang
+                    sách vở hoặc lạc đồ dùng học tập.</p>
+                <p>Hay mơ mộng, thích crush thầm mấy anh lớp 12 đẹp trai chơi bóng rổ, nhưng chưa dám nói bao giờ.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Heart Particles
+        const container = document.getElementById('particles-js');
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = "❤️";
+            heart.style.position = "fixed";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.top = "100vh";
+            heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+            heart.style.opacity = Math.random() * 0.6 + 0.2;
+            heart.style.transition = "all 6s linear";
+            heart.style.zIndex = "-1";
+            heart.style.pointerEvents = "none";
+            container.appendChild(heart);
+            setTimeout(() => {
+                heart.style.top = "-10vh";
+                heart.style.transform = `translateX(${(Math.random() - 0.5) * 200}px) rotate(${Math.random() * 360}deg)`;
+            }, 100);
+            setTimeout(() => heart.remove(), 6500);
+        }
+        setInterval(createHeart, 400);
+
+        // Animate cards on load
+        const cards = document.querySelectorAll('.info-card');
+        gsap.from(cards, {
+            opacity: 0,
+            y: 30,
+            stagger: 0.1,
+            duration: 0.5,
+            delay: 0.3,
+            ease: "power2.out"
+        });
+    </script>
+</body>
+
+</html>

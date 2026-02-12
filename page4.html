@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lời Tỏ Tình ❤️</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="page-body">
+
+    <div id="particles-js"></div>
+
+    <section class="content-page confession-page active">
+        <a href="index.html" class="close-btn">✕</a>
+        <div class="page-content">
+            <h1>💌 Lời Tỏ Tình 💌</h1>
+
+            <div class="confession-letter">
+                <p class="greeting">Vi yêu quý,</p>
+
+                <p class="big-text">Anh thích em nhiều lắm, từ lâu rồi.</p>
+
+                <p>Không phải kiểu thích thoáng qua đâu, mà là thích thật lòng, muốn được ở bên em, cùng em trải qua
+                    những ngày học hành, vui buồn.</p>
+
+                <div class="question-box">
+                    <p class="question">Ngày Valentine này, anh muốn hỏi em một câu:</p>
+                    <h2 class="main-question">Em có muốn làm người yêu anh không? ❤️</h2>
+                </div>
+
+                <p>Dù em trả lời thế nào, anh vẫn sẽ trân trọng em, vẫn coi em là người đặc biệt nhất. Nhưng nếu em cũng
+                    có chút rung động, thì cho anh cơ hội nhé. Anh hứa sẽ cố gắng làm em vui mỗi ngày.</p>
+
+                <button id="yes-btn" class="yes-button">Dạ, em đồng ý! 💕</button>
+
+                <p class="signature">Yêu em,<br>Đạt</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Heart Particles
+        const container = document.getElementById('particles-js');
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = "❤️";
+            heart.style.position = "fixed";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.top = "100vh";
+            heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+            heart.style.opacity = Math.random() * 0.6 + 0.2;
+            heart.style.transition = "all 6s linear";
+            heart.style.zIndex = "-1";
+            heart.style.pointerEvents = "none";
+            container.appendChild(heart);
+            setTimeout(() => {
+                heart.style.top = "-10vh";
+                heart.style.transform = `translateX(${(Math.random() - 0.5) * 200}px) rotate(${Math.random() * 360}deg)`;
+            }, 100);
+            setTimeout(() => heart.remove(), 6500);
+        }
+        setInterval(createHeart, 400);
+
+        // Animate confession letter
+        gsap.from('.confession-letter', {
+            opacity: 0,
+            scale: 0.9,
+            duration: 0.8,
+            delay: 0.3,
+            ease: "back.out(1.7)"
+        });
+
+        // Yes button confetti
+        const yesBtn = document.getElementById('yes-btn');
+        yesBtn.addEventListener('click', () => {
+            const duration = 3000;
+            const end = Date.now() + duration;
+            const colors = ['#FFC5D3', '#FF8DA1', '#FFA6C9', '#FFE5EC', '#FF5C8A'];
+
+            (function frame() {
+                confetti({
+                    particleCount: 5,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: colors
+                });
+                confetti({
+                    particleCount: 5,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: colors
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+
+            setTimeout(() => {
+                alert('Cảm ơn em! Anh hứa sẽ làm em hạnh phúc mỗi ngày! ❤️❤️❤️');
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
